@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# Read commit message
+commit_msg=$(cat "$1")
+first_line=$(echo "$commit_msg" | head -n 1)
+
+# Check subject line length (max 50, warn at 50+, error at 72+)
+length=${#first_line}
+if [ $length -gt 72 ]; then
+  echo "ERROR: Subject line exceeds 72 characters ($length chars)"
+  echo "Keep it under 50 characters ideally"
+  exit 1
+fi
+
+if [ $length -gt 50 ]; then
+  echo "WARNING: Subject line exceeds 50 characters ($length chars)"
+fi
+
+# Check for period at end of subject
+if echo "$first_line" | grep -q '\.$'; then
+  echo "ERROR: Subject line should not end with a period"
+  exit 1
+fi
+
+# Check for capitalized first letter (after type prefix if present)
+if echo "$first_line" | grep -qE '^(feat|fix|docs|refactor|test|chore|style|perf|ci|build|revert):'; then
+  # Has conventional commit prefix, check letter after colon
+  after_colon=$(echo "$first_line" | sed 's/^[^:]*: *//')
+  first_char=$(echo "$after_colon" | cut -c1)
+  if echo "$first_char" | grep -qE '^[a-z]'; then
+    echo "ERROR: Capitalize the first letter after the type prefix"
+    echo "Example: 'feat: Add feature' not 'feat: add feature'"
+    exit 1
+  fi
+else
+  # No prefix, check first character
+  first_char=$(echo "$first_line" | cut -c1)
+  if echo "$first_char" | grep -qE '^[a-z]'; then
+    echo "ERROR: Capitalize the subject line"
+    exit 1
+  fi
+fi
+
+echo "Commit message format OK"
