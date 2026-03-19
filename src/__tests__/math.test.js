@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { add, subtract, multiply, divide, factorial, isPrime } from '../math.js'
+import { add, subtract, multiply, divide, factorial, isPrime, fibonacci, gcd } from '../math.js'
 
 describe('Math utilities', () => {
   describe('add', () => {
@@ -81,6 +81,43 @@ describe('Math utilities', () => {
     it('returns false for non-prime numbers', () => {
       expect(isPrime(4)).toBe(false)
       expect(isPrime(9)).toBe(false)
+    })
+  })
+
+  describe('fibonacci', () => {
+    it('returns 0 for 0', () => {
+      expect(fibonacci(0)).toBe(0)
+    })
+
+    it('returns 1 for 1', () => {
+      expect(fibonacci(1)).toBe(1)
+    })
+
+    it('calculates fibonacci sequence correctly', () => {
+      expect(fibonacci(5)).toBe(5)
+      expect(fibonacci(10)).toBe(55)
+    })
+
+    it('throws error for negative numbers', () => {
+      expect(() => fibonacci(-1)).toThrow('Cannot calculate fibonacci of negative number')
+    })
+  })
+
+  describe('gcd', () => {
+    it('calculates gcd of two numbers', () => {
+      expect(gcd(12, 8)).toBe(4)
+    })
+
+    it('handles when one number is zero', () => {
+      expect(gcd(5, 0)).toBe(5)
+    })
+
+    it('handles negative numbers', () => {
+      expect(gcd(-12, 8)).toBe(4)
+    })
+
+    it('returns same number when both are equal', () => {
+      expect(gcd(7, 7)).toBe(7)
     })
   })
 })
