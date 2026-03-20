@@ -1,3 +1,9 @@
+---
+name: review
+description: Review code for quality and security
+disable-model-invocation: true
+---
+
 # Code Review Skill
 
 Review code changes for quality, security, and best practices.

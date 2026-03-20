@@ -1,3 +1,9 @@
+---
+name: commit
+description: Create a git commit with proper message format following the 7 rules
+disable-model-invocation: true
+---
+
 # Commit Skill
 
 Create a git commit with a well-formatted message following best practices.

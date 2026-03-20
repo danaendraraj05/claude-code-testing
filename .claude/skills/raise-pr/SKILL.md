@@ -1,3 +1,9 @@
+---
+name: raise-pr
+description: Analyze branch and create a pull request with gh CLI
+disable-model-invocation: true
+---
+
 # Raise PR Skill
 
 Automatically create a well-structured pull request for the current branch.
@@ -33,29 +39,6 @@ Automatically create a well-structured pull request for the current branch.
    ```bash
    gh pr create --title "<title>" --body "<body>"
    ```
-
-## PR Template
-
-```markdown
-## Summary
-
-- Brief bullet points of what changed
-
-## Changes
-
-- List of specific changes made
-- Group related changes together
-
-## Test Plan
-
-- [ ] Tests pass locally
-- [ ] Linting passes
-- [ ] Manual testing steps if applicable
-
-## Screenshots
-
-(If UI changes, include before/after screenshots)
-```
 
 ## Error Handling
 

@@ -1,3 +1,9 @@
+---
+name: pr
+description: Create a well-structured pull request
+disable-model-invocation: true
+---
+
 # Pull Request Skill
 
 Create a well-structured pull request.

@@ -1,3 +1,9 @@
+---
+name: test
+description: Run tests and analyze results
+disable-model-invocation: true
+---
+
 # Test Skill
 
 Run tests and analyze results.
