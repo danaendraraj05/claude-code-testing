@@ -36,3 +36,23 @@ export const isPrime = n => {
   }
   return true
 }
+
+export const fibonacci = n => {
+  if (n < 0) {
+    throw new Error('Cannot calculate fibonacci of negative number')
+  }
+  if (n === 0) {
+    return 0
+  }
+  if (n === 1) {
+    return 1
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2)
+}
+
+export const gcd = (a, b) => {
+  if (b === 0) {
+    return Math.abs(a)
+  }
+  return gcd(b, a % b)
+}

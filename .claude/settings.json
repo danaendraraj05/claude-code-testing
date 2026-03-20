@@ -15,6 +15,22 @@
     "test": {
       "description": "Run tests and analyze results",
       "file": "skills/test.md"
+    },
+    "raise-pr": {
+      "description": "Analyze branch and create a pull request with gh CLI",
+      "file": "skills/raise-pr.md"
+    },
+    "review-patterns": {
+      "description": "Review code for patterns and anti-patterns",
+      "file": "skills/review-patterns.md"
+    },
+    "review-architecture": {
+      "description": "Review code architecture and design decisions",
+      "file": "skills/review-architecture.md"
+    },
+    "code-quality": {
+      "description": "Analyze codebase patterns and ensure new code aligns",
+      "file": "skills/code-quality-agent.md"
     }
   }
 }
