@@ -1,0 +1,31 @@
+{
+  "strictness": "moderate",
+  "ignorePatterns": ["*.test.js", "*.spec.js", "node_modules/**", "dist/**"],
+  "patterns": {
+    "naming": {
+      "files": "kebab-case",
+      "functions": "camelCase",
+      "constants": "UPPER_SNAKE_CASE",
+      "components": "PascalCase"
+    },
+    "imports": {
+      "grouping": true,
+      "order": ["builtin", "external", "internal", "relative"],
+      "sorted": true
+    },
+    "functions": {
+      "maxLength": 30,
+      "preferArrow": true,
+      "preferAsyncAwait": true,
+      "preferEarlyReturn": true
+    },
+    "documentation": {
+      "requireJSDoc": false,
+      "requireExportDocs": true
+    }
+  },
+  "thresholds": {
+    "minPatternMatch": 80,
+    "blockOnViolations": true
+  }
+}
